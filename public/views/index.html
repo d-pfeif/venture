@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" ng-app>
+<html lang="en" dir="ltr" ng-app="venture">
   <head>
     <meta charset="utf-8">
     <title>Venture</title>
     <script src="../components/angular/angular.min.js"></script>
+    <script src="../components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="../core/core.js"></script>
+    <script src="../core/navbar/navbar.component.js"></script>
   </head>
   <body>
-    {{10+10}}
-    <h1>HELLO</h1>
+    <navbar></navbar>
+    <div ng-view></div>
   </body>
 </html>
