@@ -19,17 +19,21 @@ exports.create = function (req, res) {
   user.firstName = req.body.firstName
   user.lastName = req.body.lastName
   user.username = req.body.username
-  bcrypt.hash(req.body.password, 10, function(err, hash){
-    user.password = hash
+  if(req.body.password == req.body.password2){
+    bcrypt.hash(req.body.password, 10, function(err, hash){
+      user.password = hash
 
-    user.save((err)=>{
-      if(err){
-        res.status(400).send(err)
-      } else {
-        res.status(201).json(user)
-      }
+      user.save((err)=>{
+        if(err){
+          res.status(400).send(err)
+        } else {
+          res.redirect('/#!success')
+        }
+      })
     })
-  })
+  } else {
+    res.status(400)
+  }
 };
 
 /**

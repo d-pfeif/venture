@@ -38,7 +38,14 @@
 
     .when('/login', {
       templateUrl: "/views/login.html"
-      // controller: "userController"
+    })
+
+    .when('/signup', {
+      templateUrl: "/views/signup.html"
+    })
+
+    .when('/success', {
+      template: "<p>Thanks for joining Venture! You can now log into your profile.</p>"
     })
   })
 })()

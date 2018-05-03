@@ -1,0 +1,13 @@
+<form action="/api/users/" method="post">
+  <label>First Name</label>
+  <input type="text" name="firstName" ng-model="firstName" placeholder="Harry">
+  <label>Last Name</label>
+  <input type="text" name="lastName" ng-model="lastName" placeholder="Potter">
+  <label>Username</label>
+  <input type="text" name="username" ng-model="username" placeholder="username">
+  <label>Password</label>
+  <input type="password" name="password" ng-model="password" placeholder="password">
+  <label>Confirm Password</label>
+  <input type="password" name="password2" ng-model="password2" placeholder="password">
+  <button type="submit" ng-disabled="username.length == null || password.length == null || password2.length == null || password.length < 4 || firstName == null || lastName == null">Sign Up</button>
+</form>
