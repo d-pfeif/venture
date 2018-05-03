@@ -5,9 +5,8 @@
  */
 var path = require('path'),
   mongoose = require('mongoose'),
-  // errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   _ = require('lodash'),
-  actModel = require('../models/activities.model.js'),
+  actModel = require('./activities.model.js'),
   Activity = mongoose.model("Activity");
 
 /**
@@ -31,9 +30,7 @@ exports.create = function (req, res) {
 exports.read = function (req, res) {
   Activity.findById(req.params.activityId).exec(function(err, activity){
     if(err){
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      })
+      return res.status(400).send(err)
     } else {
       if(!activity) {
         return res.status(404).send({
@@ -57,9 +54,7 @@ exports.update = function (req, res) {
 
   activity.save((err)=>{
     if(err){
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      })
+      return res.status(400).send(err)
     } else {
       res.json(activity);
     }
@@ -74,9 +69,7 @@ exports.delete = function (req, res) {
 
   activity.remove((err)=>{
     if(err){
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      })
+      return res.status(400).send(err)
     } else {
       res.json(activity)
     }
@@ -89,9 +82,7 @@ exports.delete = function (req, res) {
 exports.list = function (req, res) {
   Activity.find().exec(function(err, activities){
     if(err){
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      })
+      return res.status(400).send(err)
     } else {
       res.json(activities)
     }

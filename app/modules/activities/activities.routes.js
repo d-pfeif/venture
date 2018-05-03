@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost/venture')
 
-var activities = require('../controllers/activities.controller.js')
+var activities = require('./activities.controller.js')
 
 router.route('/')
 .get(activities.list)

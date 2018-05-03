@@ -1,0 +1,7 @@
+<form action="/api/users/login" method="post">
+  <label>Username</label>
+  <input type="text" name="username" ng-model="username" placeholder="username">
+  <label>Password</label>
+  <input type="password" name="password" ng-model="password" placeholder="password">
+  <button type="submit" ng-disabled="username.length == null || password.length == null || password.length < 4">Login</button>
+</form>

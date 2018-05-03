@@ -1,7 +1,11 @@
-<div class="">
+<div ng-controller="navbar">
   <h1>Venture</h1>
   <nav>
     <a href="/">Home</a>
     <a href="/#!activities">Activities</a>
+    <a ng-if="userInfo == null" href="/#!login">Login</a>
+    <a ng-if="userInfo.user != null" href="/api/users/logout">Logout</a>
+
+    <p ng-if"userInfo != null">{{userInfo.user.username}}</p>
   </nav>
 </div>
