@@ -26,14 +26,14 @@
     $http.get('/api/activities/'+$routeParams.id)
     .then(function successCallback(data){
       $scope.activity = data.data
-      console.log(data);
+      // console.log(data);
     }, function errorCallback(error){
       console.log(error);
     })
 
     if($cookies.get('venture')){
       $scope.userInfo = JSON.parse(window.atob($cookies.get('venture')))
-      console.log($scope.userInfo);
+      // console.log($scope.userInfo);
     } else {
       $scope.userInfo = null
     }
@@ -51,7 +51,7 @@
 
     if($cookies.get('venture')){
       $scope.userInfo = JSON.parse(window.atob($cookies.get('venture')))
-      console.log($scope.userInfo);
+      // console.log($scope.userInfo);
     } else {
       $scope.userInfo = null
     }

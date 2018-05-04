@@ -8,15 +8,31 @@ var path = require('path'),
   UserActs = mongoose.model('UserActs')
 
 exports.create = function(req,res){
-  var userAct = new UserActs(req.body);
-
-  userAct.save((err)=>{
+  UserActs.find({userId: req.body.userId}).exec(function(err, userActs){
     if(err){
-      res.status(400).send(err)
+      return res.status(400).send(err)
     } else {
-      res.redirect('/profile')
+      let exists = false
+      for (var i = 0; i < userActs.length; i++) {
+        if(userActs[i].activityId == req.body.activityId){
+          exists = true
+        }
+      }
+      if(!exists){
+        var userAct = new UserActs(req.body);
+        userAct.save((err)=>{
+          if(err){
+            res.status(400).send(err)
+          } else {
+            res.redirect('/profile')
+          }
+        })
+      } else {
+        res.redirect('/')
+      }
     }
   })
+
 };
 
 exports.list = function(req,res){
