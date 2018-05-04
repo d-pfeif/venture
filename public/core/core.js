@@ -7,28 +7,22 @@
     $http.get('/api/activities')
     .then(function successCallback(data){
       $scope.activities = data.data
-      console.log(data);
+      // console.log(data);
     }, function errorCallback(error){
       console.log(error);
     })
   })
 
-  .controller('userController', function($scope, $http) {
-    $scope.userData = {};
+  .controller('profileController', function($scope){
 
-    $http.get('/users')
-    .then(function successCallback(data){
-      $scope.users = data.data
-      console.log(data);
-    }, function errorCallback(error){
-      console.log(error);
-    })
   })
+
 
   .config(function($routeProvider){
     $routeProvider
     .when('/', {
-      template: "<p>welcome to venture</p>"
+      templateUrl: "/views/home.html",
+      controller: "navbar"
     })
 
     .when('/activities', {
@@ -44,8 +38,9 @@
       templateUrl: "/views/signup.html"
     })
 
-    .when('/success', {
-      template: "<p>Thanks for joining Venture! You can now log into your profile.</p>"
+    .when('/user/:id', {
+      templateUrl: "/views/profile.html",
+      controller: "navbar"
     })
   })
 })()

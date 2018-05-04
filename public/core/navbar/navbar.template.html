@@ -3,8 +3,13 @@
   <nav>
     <a href="/">Home</a>
     <a href="/#!activities">Activities</a>
+
+    <!-- Displays if user isn't logged in -->
     <a ng-if="userInfo == null" href="/#!login">Login</a>
     <a ng-if="userInfo == null" href="/#!signup">Sign Up</a>
+
+    <!-- Displays if user is logged in -->
+    <a ng-if="userInfo.user != null" href="/#!user/{{userInfo.user._id}}">Profile</a>
     <a ng-if="userInfo.user != null" href="/api/users/logout">Logout</a>
 
     <p ng-if"userInfo != null">{{userInfo.user.username}}</p>
