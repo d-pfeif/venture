@@ -22,3 +22,6 @@
   </div>
   <button type="submit" name="button">Update</button>
 </form>
+<form action="{{'/api/users/' + userInfo.user._id + '?_method=DELETE'}}" method="post">
+  <button type="submit">Delete Account</button>
+</form>

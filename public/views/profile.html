@@ -2,12 +2,21 @@
   <div>
     <!-- buttons go here -->
     <button name="myActs" ng-click="name = 'myActs'">My Activities</button>
-    <button name="update" ng-click="name = 'update'">Update Profile</button>
+    <button name="update" ng-click="name = 'update'">Edit Profile</button>
   </div>
   <div ng-switch="name">
     <!-- update this area dynamically -->
     <div ng-switch-when="myActs">
-      list activities
+      <p ng-show="activities.length==0">You don't have any activities! You can add activities from the activities page!</p>
+      <div ng-repeat="act in activities">
+        <a href="/#!activities/{{act.activityId}}">
+          <h3>{{act.activityName}}</h3>
+          <h5 ng-repeat="type in act.activity_type">{{type}}</h5>
+        </a>
+        <form action="{{'/api/userActs/' + act.userId + '/' + act._id + '?_method=DELETE'}}" method="post">
+          <button type="submit">Delete</button>
+        </form>
+      </div>
     </div>
     <div ng-switch-when="update">
       <div ng-include="'views/updateProfile.html'"></div>
