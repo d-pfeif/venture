@@ -15,7 +15,9 @@ const userAPI = require('./app/modules/users/user.routes.js')
 // Request body parsing middleware should be above methodOverride
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-app.use(methodOverride())
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 
 // Use cookies to allow continuous user login.
 app.use(cookieParser())

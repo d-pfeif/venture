@@ -1,7 +1,7 @@
 (function(){
   angular.module('venture', ['ngRoute', 'ngCookies'])
 
-  .controller('activityController', function($scope, $http) {
+  .controller('activityController', function($scope, $http, $cookies) {
     $scope.activityData = {};
 
     $http.get('/api/activities')
@@ -11,12 +11,33 @@
     }, function errorCallback(error){
       console.log(error);
     })
+
+    if($cookies.get('venture')){
+      $scope.userInfo = JSON.parse(window.atob($cookies.get('venture')))
+      // console.log($scope.userInfo);
+    } else {
+      $scope.userInfo = null
+    }
   })
 
-  .controller('profileController', function($scope){
+  .controller('oneActivity', function($scope, $http, $cookies, $routeParams) {
+    $scope.activityData = {};
 
+    $http.get('/api/activities/'+$routeParams.id)
+    .then(function successCallback(data){
+      $scope.activity = data.data
+      console.log(data);
+    }, function errorCallback(error){
+      console.log(error);
+    })
+
+    if($cookies.get('venture')){
+      $scope.userInfo = JSON.parse(window.atob($cookies.get('venture')))
+      // console.log($scope.userInfo);
+    } else {
+      $scope.userInfo = null
+    }
   })
-
 
   .config(function($routeProvider){
     $routeProvider
@@ -41,6 +62,11 @@
     .when('/user/:id', {
       templateUrl: "/views/profile.html",
       controller: "navbar"
+    })
+
+    .when('/activities/:id', {
+      templateUrl: "/views/oneActivity.html",
+      controller: "oneActivity"
     })
   })
 })()

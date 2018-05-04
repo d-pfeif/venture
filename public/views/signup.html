@@ -1,13 +1,29 @@
 <form action="/api/users/" method="post">
   <label>First Name</label>
-  <input type="text" name="firstName" ng-model="firstName" placeholder="Harry">
+  <input type="text" name="firstName" ng-model="firstName" placeholder="Harry" required>
+  <div role="alert">
+    <span class="error" ng-show="userForm.firstName.$error.required">Required!</span>
+  </div>
   <label>Last Name</label>
-  <input type="text" name="lastName" ng-model="lastName" placeholder="Potter">
+  <input type="text" name="lastName" ng-model="lastName" placeholder="Potter" required>
+  <div role="alert">
+    <span class="error" ng-show="userForm.lastName.$error.required">Required!</span>
+  </div>
   <label>Username</label>
-  <input type="text" name="username" ng-model="username" placeholder="username">
+  <input type="text" name="username" ng-model="username" placeholder="username" required>
+  <div role="alert">
+    <span class="error" ng-show="userForm.username.$error.required">Required!</span>
+  </div>
   <label>Password</label>
-  <input type="password" name="password" ng-model="password" placeholder="password">
+  <input type="password" name="password" ng-model="password" placeholder="password" required>
+  <div role="alert">
+    <span class="error" ng-show="userForm.password.$error.required">Required!</span>
+  </div>
   <label>Confirm Password</label>
-  <input type="password" name="password2" ng-model="password2" placeholder="password">
+  <input type="password" name="password2" ng-model="password2" placeholder="password" required>
+  <div role="alert">
+    <span class="error" ng-show="userForm.password2.$error.required">Required!</span>
+    <span class="error" ng-show="password != password2">Passwords need to match!</span>
+  </div>
   <button type="submit" ng-disabled="username.length == null || password.length == null || password2.length == null || password.length < 4 || firstName == null || lastName == null">Sign Up</button>
 </form>

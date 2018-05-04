@@ -70,7 +70,8 @@ exports.update = function (req, res) {
       if(err){
         return res.status(400).send(err)
       } else {
-        res.json(user);
+        req.session.user = user
+        res.redirect('/profile');
       }
     })
 
