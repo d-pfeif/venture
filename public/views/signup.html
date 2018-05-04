@@ -1,29 +1,39 @@
 <form action="/api/users/" method="post">
-  <label>First Name</label>
-  <input type="text" name="firstName" ng-model="firstName" placeholder="Harry" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.firstName.$error.required">Required!</span>
+  <div class="form-group">
+    <label>First Name</label>
+    <input class="form-control" type="text" name="firstName" ng-model="firstName" placeholder="Harry" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.firstName.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Last Name</label>
-  <input type="text" name="lastName" ng-model="lastName" placeholder="Potter" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.lastName.$error.required">Required!</span>
+  <div class="form-group">
+    <label>Last Name</label>
+    <input class="form-control" type="text" name="lastName" ng-model="lastName" placeholder="Potter" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.lastName.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Username</label>
-  <input type="text" name="username" ng-model="username" placeholder="username" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.username.$error.required">Required!</span>
+  <div class="form-group">
+    <label>Username</label>
+    <input class="form-control" type="text" name="username" ng-model="username" placeholder="username" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.username.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Password</label>
-  <input type="password" name="password" ng-model="password" placeholder="password" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.password.$error.required">Required!</span>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control" type="password" name="password" ng-model="password" placeholder="password" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.password.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Confirm Password</label>
-  <input type="password" name="password2" ng-model="password2" placeholder="password" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.password2.$error.required">Required!</span>
-    <span class="error" ng-show="password != password2">Passwords need to match!</span>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input class="form-control" type="password" name="password2" ng-model="password2" placeholder="password" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.password2.$error.required">Required!</span>
+      <span class="error" ng-show="password != password2">Passwords need to match!</span>
+    </div>
   </div>
-  <button type="submit" ng-disabled="username.length == null || password.length == null || password2.length == null || password.length < 4 || firstName == null || lastName == null">Sign Up</button>
+  <button type="submit" ng-disabled="username.length == null || password.length == null || password2.length == null || password.length < 4 || firstName == null || lastName == null" class="btn btn-info">Sign Up</button>
 </form>

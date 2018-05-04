@@ -1,17 +1,39 @@
 <div ng-controller="navbar">
   <h1>Venture</h1>
   <nav>
-    <a href="/">Home</a>
-    <a href="/#!activities">Activities</a>
+    <a class="btn btn-success" role="button" href="/">Home</a>
+    <a class="btn btn-success" role="button" ng-show="userInfo == null" href="/#!activities">Activities</a>
+
+    <div ng-show="userInfo != null" class="btn-group">
+      <a class="btn btn-success" href="/#!activities" role="button" id="dropdownMenuLink">
+        Activities
+      </a>
+      <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Add an Activity</a>
+        <a class="dropdown-item" href="#">Search for Activities</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Validate Activites</a>
+      </div>
+    </div>
 
     <!-- Displays if user isn't logged in -->
-    <a ng-if="userInfo == null" href="/#!login">Login</a>
-    <a ng-if="userInfo == null" href="/#!signup">Sign Up</a>
+    <a class="btn btn-success" role="button" ng-if="userInfo == null" href="/#!login">Login</a>
+    <a class="btn btn-success" role="button" ng-if="userInfo == null" href="/#!signup">Sign Up</a>
 
     <!-- Displays if user is logged in -->
-    <a ng-if="userInfo.user != null" href="/#!user/{{userInfo.user._id}}">Profile</a>
-    <a ng-if="userInfo.user != null" href="/api/users/logout">Logout</a>
 
-    <p ng-if"userInfo != null">{{userInfo.user.username}}</p>
+    <div ng-show="userInfo != null" class="btn-group">
+      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{userInfo.user.username}}
+      </button>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="/#!user/{{userInfo.user._id}}">View Profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/api/users/logout">Logout</a>
+      </div>
+    </div>
   </nav>
 </div>

@@ -1,27 +1,35 @@
 <form name="userForm" action="{{'/api/users/' + userInfo.user._id + '?_method=PUT'}}" method="post">
-  <label>First Name</label>
-  <input type="text" name="firstName" data-ng-model="userInfo.user.firstName" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.firstName.$error.required">Required!</span>
+  <div class="form-group">
+    <label>First Name</label>
+    <input class="form-control" type="text" name="firstName" data-ng-model="userInfo.user.firstName" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.firstName.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Last Name</label>
-  <input type="text" name="lastName" data-ng-model="userInfo.user.lastName" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.lastName.$error.required">Required!</span>
+  <div class="form-group">
+    <label>Last Name</label>
+    <input class="form-control" type="text" name="lastName" data-ng-model="userInfo.user.lastName" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.lastName.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Password</label>
-  <input type="text" name="password" ng-model="password" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.password.$error.required">Required!</span>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control" type="text" name="password" ng-model="password" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.password.$error.required">Required!</span>
+    </div>
   </div>
-  <label>Confirm Password</label>
-  <input type="text" name="password2" ng-model="password2" required>
-  <div role="alert">
-    <span class="error" ng-show="userForm.password2.$error.required">Required!</span>
-    <span class="error" ng-show="password != password2">Passwords need to match!</span>
+  <div class="form-group">
+    <label>Confirm Password</label>
+    <input class="form-control" type="text" name="password2" ng-model="password2" required>
+    <div role="alert">
+      <span class="error" ng-show="userForm.password2.$error.required">Required!</span>
+      <span class="error" ng-show="password != password2">Passwords need to match!</span>
+    </div>
   </div>
-  <button type="submit" name="button">Update</button>
+  <button type="submit" name="button" class="btn btn-info">Update</button>
 </form>
 <form action="{{'/api/users/' + userInfo.user._id + '?_method=DELETE'}}" method="post">
-  <button type="submit">Delete Account</button>
+  <button type="submit" class="btn btn-danger btn-lg btn-block">Delete Account</button>
 </form>

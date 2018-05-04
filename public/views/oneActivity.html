@@ -6,16 +6,16 @@
 </div>
 <div>
   <!-- Add to users activities -->
-  <label>Add to your activities?</label>
   <form action="/api/userActs" method="post">
     <input type="hidden" name="activityName" value="{{activity.name}}">
     <input type="hidden" name="activityId" value="{{activity._id}}">
     <input type="hidden" name="userId" value="{{userInfo.user._id}}">
     <label>What types of activities are you interested in doing here?</label>
-    <select name="activity_type" multiple>
+    <select class="form-control" name="activity_type" multiple>
       <option ng-repeat="type in activity.activity_type" ng-value="type" selected>{{type}}</option>
     </select>
-    <button type="submit">Add</button>
+    <label>Add to your activities?</label>
+    <button class="btn btn-outline-info btn-lg btn-block" type="submit">Add</button>
 
   </form>
 </div>
