@@ -1,39 +1,55 @@
-<div ng-controller="navbar">
-  <h1>Venture</h1>
-  <nav>
-    <a class="btn btn-success" role="button" href="/">Home</a>
-    <a class="btn btn-success" role="button" ng-show="userInfo == null" href="/#!activities">Activities</a>
-
-    <div ng-show="userInfo != null" class="btn-group">
-      <a class="btn btn-success" href="/#!activities" role="button" id="dropdownMenuLink">
-        Activities
-      </a>
-      <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only">Toggle Dropdown</span>
+<div class="container">
+  <div ng-controller="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="justifyContent: space-between">
+      <h1>Venture</h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">Add an Activity</a>
-        <a class="dropdown-item" href="#">Search for Activities</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Validate Activites</a>
+      <div class="collapse navbar-collapse navigation" id="navbarNavDropdown">
+        <ul class="navbar-nav navList">
+          <!-- <li class="nav-item"> -->
+            <a class="btn btn-success" role="button" href="/">Home</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <a class="btn btn-success" role="button" ng-show="userInfo == null" href="/#!activities">Activities</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <div ng-show="userInfo != null" class="btn-group">
+              <a class="btn btn-success btn-block" href="/#!activities" role="button" id="dropdownMenuLink">Activities</a>
+              <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Add an Activity</a>
+                <a class="dropdown-item" href="#">Search Activities</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Validate Activites</a>
+              </div>
+            </div>
+          <!-- </li> -->
+
+        <!-- Displays if user isn't logged in -->
+          <!-- <li class="nav-item"> -->
+            <a class="btn btn-success" role="button" ng-if="userInfo == null" href="/#!login">Login</a>
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <a class="btn btn-success" role="button" ng-if="userInfo == null" href="/#!signup">Sign Up</a>
+          <!-- </li> -->
+
+        <!-- Displays if user is logged in -->
+          <!-- <li class="nav-item"> -->
+            <div ng-show="userInfo != null" class="btn-group">
+              <button type="button" class="btn btn-warning dropdown-toggle btn-block" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{userInfo.user.username}}
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="/#!user/{{userInfo.user._id}}">View Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/api/users/logout">Logout</a>
+              </div>
+            </div>
+          <!-- </li> -->
       </div>
-    </div>
-
-    <!-- Displays if user isn't logged in -->
-    <a class="btn btn-success" role="button" ng-if="userInfo == null" href="/#!login">Login</a>
-    <a class="btn btn-success" role="button" ng-if="userInfo == null" href="/#!signup">Sign Up</a>
-
-    <!-- Displays if user is logged in -->
-
-    <div ng-show="userInfo != null" class="btn-group">
-      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{userInfo.user.username}}
-      </button>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="/#!user/{{userInfo.user._id}}">View Profile</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/api/users/logout">Logout</a>
-      </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </div>
