@@ -1,10 +1,10 @@
 <div class="container">
-  <div>
+  <div class="container" style="display:flex;justify-content:center">
     <!-- buttons go here -->
     <button name="myActs" class="btn btn-outline-info" ng-click="name = 'myActs'">My Activities</button>
     <button name="update" class="btn btn-outline-info" ng-click="name = 'update'">Edit Profile</button>
   </div>
-  <div ng-switch="name">
+  <div ng-switch="name" class="container bg-light">
     <!-- update this area dynamically -->
     <div ng-switch-when="myActs">
       <p ng-show="activities.length==0">You don't have any activities! You can add activities from the activities page!</p>
