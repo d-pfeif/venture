@@ -86,5 +86,9 @@
       templateUrl: "/views/oneActivity.html",
       controller: "oneActivity"
     })
+
+    .when('/new/activity', {
+      templateUrl: "/views/addActivity.html"
+    })
   })
 })()

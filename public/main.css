@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Alcubierre;
+    src: url("./Alcubierre.otf") format("opentype");
+}
+
 body {
   background: url('./action-adventure-alps.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -9,15 +14,29 @@ body {
   border-radius: 5px;
 }
 
+* {
+  font-family: 'Alcubierre';
+  /* font-family: 'Montserrat Alternates', sans-serif; */
+}
+
+.navbar {
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+p {
+  font-size: 1.5em;
+}
+
 .greeting {
   width: 100%;
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: black;
-  font-size: 3em;
+  font-size: 2em !important;
   text-align: center;
+  color: white;
+  text-shadow: 1px 1px 20px black;
 }
 
 @media only screen and (min-width: 992px){
@@ -33,14 +52,7 @@ body {
   }
 
   .greeting {
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-size: 4em;
-    text-align: center;
+    font-size: 3em !important;
   }
 
 }
