@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const cookieSession = require('cookie-session')
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'))
 const activityAPI = require('./app/modules/activities/activities.routes.js')
