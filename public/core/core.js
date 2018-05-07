@@ -26,7 +26,7 @@
     $http.get('/api/activities/'+$routeParams.id)
     .then(function successCallback(data){
       $scope.activity = data.data
-      // console.log(data);
+      console.log(data.data);
     }, function errorCallback(error){
       console.log(error);
     })
@@ -94,6 +94,11 @@
     .when('/validate', {
       templateUrl: "/views/validAct.html",
       controller: "activityController"
+    })
+
+    .when('/validate/:id', {
+      templateUrl: "/views/validOneAct.html",
+      controller: "oneActivity"
     })
   })
 })()
