@@ -10,6 +10,9 @@
 <div ng-repeat="activity in activities"  ng-show="userInfo.user != null">
   <a style="text-decoration: none" href="/#!activities/{{activity._id}}">
     <div ng-init="hover = false" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="container ng-class: hover == true ? 'bg-white' : 'bg-light'">
+      <div ng-show="activity.validated != true">
+        <h1>***NEW***</h1>
+      </div>
       <!-- <div ng-if="activity.validated"> -->
       <h1>{{activity.name}}</h1>
       <h4>{{activity.location.city}}, {{activity.location.state}}</h4>
