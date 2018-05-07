@@ -80,7 +80,7 @@ exports.delete = function (req, res) {
  * List of Activities
  */
 exports.list = function (req, res) {
-  Activity.find().exec(function(err, activities){
+  Activity.find().sort({"validated": 1, "location.state": 1, "location.city": 1}).exec(function(err, activities){
     if(err){
       return res.status(400).send(err)
     } else {
