@@ -4,7 +4,7 @@
       <!-- <div ng-if="activity.validated"> -->
       <h1>{{activity.name}}</h1>
       <h4>{{activity.location.city}}, {{activity.location.state}}</h4>
-      <h5 ng-repeat="type in activity.activity_type">{{type}}</h5>
+      <span style="font-size: 1.25em" ng-repeat="type in activity.activity_type">{{type}}, </span>
       <p>{{activity.description}}</p>
 
       <!-- </div> -->

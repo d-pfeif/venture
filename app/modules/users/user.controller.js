@@ -27,7 +27,7 @@ exports.create = function (req, res) {
         if(err){
           res.status(400).send(err)
         } else {
-          res.redirect('/')
+          res.redirect('/login')
         }
       })
     })

@@ -96,7 +96,7 @@
     </div>
     <div class="form-group">
       <label>What can you do there?</label>
-      <select multiple class="form-control is-valid" name="activity_type">
+      <select multiple class="form-control ng-class: activity_type == null ? 'is-invalid' : 'is-valid'" ng-model="activity_type" name="activity_type" required>
         <option>Hiking</option>
         <option>Climbing</option>
         <option>Mountain Biking</option>
@@ -104,7 +104,8 @@
         <option>Paddle Boarding</option>
         <option>Rafting</option>
       </select>
-      <div class="valid-feedback">Optional -- you can select multiple!</div>
+      <div class="valid-feedback" ng-show="activity_type.length > 0">Required -- you can select multiple!</div>
+      <div class="invalid-feedback" ng-show="activity_type.length == null">Required -- you have to select one!</div>
     </div>
     <div class="form-group">
       <label>Description</label>

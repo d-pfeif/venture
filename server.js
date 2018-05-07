@@ -12,6 +12,7 @@ app.use(express.static(__dirname + '/public'))
 const activityAPI = require('./app/modules/activities/activities.routes.js')
 const userAPI = require('./app/modules/users/user.routes.js')
 const userActsAPI = require('./app/modules/userActs/userActs.routes.js')
+const db = require('./config/database.js')
 
 // Request body parsing middleware should be above methodOverride
 app.use(bodyParser.urlencoded({extended: true}))
@@ -24,7 +25,7 @@ app.use(methodOverride('_method'))
 app.use(cookieParser())
 app.use(cookieSession({
   name: 'venture',
-  secret: 'kitty',
+  secret: db.secret,
   httpOnly: false,
 
   // Cookie Options

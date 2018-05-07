@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const db = require('./../../../config/database.js')
 
-mongoose.connect('mongodb://localhost/venture')
+mongoose.connect(db.database)
 
 var activities = require('./activities.controller.js')
 
