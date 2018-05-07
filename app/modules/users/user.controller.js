@@ -19,6 +19,7 @@ exports.create = function (req, res) {
   user.firstName = req.body.firstName
   user.lastName = req.body.lastName
   user.username = req.body.username
+  user.role = req.body.role
   if(req.body.password == req.body.password2){
     bcrypt.hash(req.body.password, 10, function(err, hash){
       user.password = hash

@@ -30,6 +30,9 @@
       <div class="invalid-feedback">Passwords must match.</div>
       <div class="valid-feedback">Looks great!</div>
     </div>
+    <div class="form-group">
+      <input type="hidden" name="role" value="user">
+    </div>
     <button type="submit" ng-disabled="username.length == null || password.length == null || password2.length == null || password.length < 4 || firstName == null || lastName == null" class="btn btn-info">Sign Up</button>
   </form>
 </div>
