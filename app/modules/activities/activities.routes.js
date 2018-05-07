@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const db = require('./../../../config/database.js')
 
-mongoose.connect(db.database)
+mongoose.connect('mongodb://doxyc:Auryx289@ds117250.mlab.com:17250/venture')
 
 var activities = require('./activities.controller.js')
 
