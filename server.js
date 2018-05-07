@@ -24,7 +24,7 @@ app.use(methodOverride('_method'))
 app.use(cookieParser())
 app.use(cookieSession({
   name: 'venture',
-  secret: db.secret,
+  secret: "mysecret",
   httpOnly: false,
 
   // Cookie Options
