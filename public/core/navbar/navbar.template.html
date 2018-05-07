@@ -22,8 +22,8 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#!/new/activity/">Add an Activity</a>
                 <a class="dropdown-item" href="#">Search Activities</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Validate Activites</a>
+                <div class="dropdown-divider" ng-show="userInfo.user.role == 'admin'"></div>
+                <a class="dropdown-item" href="#!/validate/" ng-show="userInfo.user.role == 'admin'">Validate Activites</a>
               </div>
             </div>
           <!-- </li> -->

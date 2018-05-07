@@ -90,5 +90,10 @@
     .when('/new/activity', {
       templateUrl: "/views/addActivity.html"
     })
+
+    .when('/validate', {
+      templateUrl: "/views/validAct.html",
+      controller: "activityController"
+    })
   })
 })()

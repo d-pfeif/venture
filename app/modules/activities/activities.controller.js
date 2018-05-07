@@ -71,7 +71,7 @@ exports.delete = function (req, res) {
     if(err){
       return res.status(400).send(err)
     } else {
-      res.json(activity)
+      res.redirect('/#!validate')
     }
   })
 };
