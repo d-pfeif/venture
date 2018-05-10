@@ -114,16 +114,16 @@ exports.list = function (req, res) {
 exports.login = function(req,res){
   User.find({username: req.body.username}).exec(function(err, user){
     if(err){
-      return res.status(400).send(err)
+      res.status(400).send(err)
     } else if (user.length == 0) {
-      return res.status(400)
+      res.redirect('/#!login/fail')
     } else {
       bcrypt.compare(req.body.password, user[0].password, function(err, response){
         if (response == true) {
           req.session.user = user[0]
-          return res.redirect('/')
+          res.redirect('/')
         } else {
-          return res.status(401)
+          res.redirect('/#!login/fail')
         }
       })
 

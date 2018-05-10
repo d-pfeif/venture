@@ -73,6 +73,10 @@
       templateUrl: "/views/login.html"
     })
 
+    .when('/login/fail', {
+      templateUrl: "/views/loginfail.html"
+    })
+
     .when('/signup', {
       templateUrl: "/views/signup.html"
     })
