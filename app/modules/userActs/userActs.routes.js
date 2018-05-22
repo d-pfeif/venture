@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://doxyc:Auryx289@ds117250.mlab.com:17250/venture')
+mongoose.connect(process.env.DATABASE_URL)
 
 var userActs = require('./userActs.controller.js')
 
