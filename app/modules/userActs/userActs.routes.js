@@ -1,8 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 
-mongoose.connect(process.env.DATABASE_URL)
+dotenv.config();
+
+mongoose.connect(process.env.MONGOLAB_URI)
 
 var userActs = require('./userActs.controller.js')
 
